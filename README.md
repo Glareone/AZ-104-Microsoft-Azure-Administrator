@@ -46,3 +46,26 @@ REST API Querying. Because Azure AD is HTTP/HTTPS based, it cannot be queried th
 * Joining a device is an extension to registering a device. Joining provides the benefits of registering and changes the local state of a device. Changing the local state enables your users to sign-in to a device using an organizational work or school account instead of a personal account.
   
 </details>
+
+<details>
+<summary>Azure Roles. Azure Roles vs Azure Directory roles</summary>
+
+![image](https://user-images.githubusercontent.com/4239376/187094387-e7732727-4847-419a-a3f9-af31cefd071a.png)
+![image](https://user-images.githubusercontent.com/4239376/187094390-944ae973-6a22-4828-904d-a9cee7afc8a8.png)
+1. Actions
+2. NoActions
+3. DataActions
+
+* Classic subscription administrator roles
+* Azure role-based access control (RBAC) roles
+* Azure Active Directory (Azure AD) administrator roles
+
+![image](https://user-images.githubusercontent.com/4239376/187094377-029444cf-0bf9-4ae6-88cd-e906a6c11db9.png)
+
+### The following diagram illustrates how Azure AD Admin roles are different from Azure RBAC roles. 
+Azure AD Admin roles are used to manage resources in Azure AD, such as users, groups, and domains. Azure RBAC roles provide more fine-grained access management to Azure resources.
+
+![image](https://user-images.githubusercontent.com/4239376/187094494-02376152-8d06-41ad-87e6-c6ebba533793.png)
+
+
+</details>
