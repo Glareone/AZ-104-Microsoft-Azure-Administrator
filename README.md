@@ -67,5 +67,40 @@ Azure AD Admin roles are used to manage resources in Azure AD, such as users, gr
 
 ![image](https://user-images.githubusercontent.com/4239376/187094494-02376152-8d06-41ad-87e6-c6ebba533793.png)
 
+</details>
+
+<details>
+<summary>Azure Container Instance</summary>
+
+### Intro:
+The top-level resource in Azure Container Instances is the container group. A container group is a collection of containers that get scheduled on the same host machine. The containers in a container group share a lifecycle, resources, local network, and storage volumes. It's similar in concept to a pod in Kubernetes.
+
+![image](https://user-images.githubusercontent.com/4239376/188326890-ee3cf8a5-cb0e-44ff-a508-7b4ddb002994.png)
+![image](https://user-images.githubusercontent.com/4239376/188326898-b7259ee3-83e1-4db8-983f-cbb2c3b77b92.png)
+
+### An example container group:
+* Is scheduled on a single host machine.
+* Is assigned a DNS name label.
+* Exposes a single public IP address, with one exposed port.
+* Consists of two containers. One container listens on port 80, while the other listens on port 1433.
+* Includes two Azure file shares as volume mounts, and each container mounts one of the shares locally.
+
+### Resource allocation
+Azure Container Instances allocates resources such as CPUs, memory, and optionally GPUs to a multi-container group by adding the resource requests of the instances in the group. Taking CPU resources as an example, if you create a container group with two container instances, each requesting one CPU, then the container group is allocated 2 CPUs.
+
+### Common scenarios
+* Multi-container groups are useful in cases where you want to divide a single functional task into a small number of container images. These images can then be delivered by different teams and have separate resource requirements. Example usage could include:
+
+* A container serving a web application and a container pulling the latest content from source control.
+* An application container and a logging container. The logging container collects the logs and metrics output by the main application and writes them to long-term storage.
+* An application container and a monitoring container. The monitoring container periodically makes a request to the application to ensure that it's running and responding correctly, and raises an alert if it's not.
+* A front-end container and a back-end container. The front end might serve a web application, with the back end running a service to retrieve data.
+
+</details>
+
+<details>
+<summary>Azure Container Instance vs Azure Kubernetes Service</summary>
+
+ACI is easier, lightweight solution to run your containerized instances. AKS is more about handling complex scenarios when you need to manage a series of pods, containers in them and so on.
 
 </details>
