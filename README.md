@@ -257,7 +257,7 @@ A node that passes a threshold for no longer being needed for 10 minutes by defa
   
 </details>
 
-# ASK. Q&A:
+# AKS. Q&A:
 2. The infrastructure team is configuring networking for the Azure Kubernetes service. Which of the following services would be best for internal-only applications that support other workloads within the cluster?
 
 **LoadBalancer**
