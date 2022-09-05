@@ -155,3 +155,26 @@ Nodes of the same configuration are grouped together into node pools. A Kubernet
 Kubernetes uses pods to run an instance of your application. A pod represents a single instance of your application. Pods typically have a 1:1 mapping with a container, although there are advanced scenarios where a pod might contain multiple containers. These multi-container pods are scheduled together on the same node, and allow containers to share related resources.
   
 </details>
+
+<details>
+<summary>Azure Kubernetes Service. Persistent Volumes. Volume, Persistent Volume, Storage Classes, Volume Claims</summary>
+  
+![image](https://user-images.githubusercontent.com/4239376/188500754-d6adcacf-d378-4f7b-875c-f2758d999d3e.png)  
+## Applications that run in Azure Kubernetes Service (AKS) may need to store and retrieve data. 
+  
+  For some application workloads, this data storage can use local, fast storage on the node that is no longer needed when the pods are deleted. Other application workloads may require storage that persists on more regular data volumes within the Azure platform. Multiple pods may need to share the same data volumes, or reattach data volumes if the pod is rescheduled on a different node. Finally, you may need to inject sensitive data or application configuration information into pods.
+  
+* Volumes
+* Persistent volumes
+* Storage classes
+* Persistent volume claims
+  
+### Volumes
+Applications often need to be able to store and retrieve data. As Kubernetes typically treats individual pods as ephemeral, disposable resources, different approaches are available for applications use and persist data as necessary. A volume represents a way to store, retrieve, and persist data across pods and through the application lifecycle.  
+  
+Traditional volumes to store and retrieve data are created as Kubernetes resources backed by Azure Storage. You can manually create these data volumes to be assigned to pods directly, or have Kubernetes automatically create them. These data volumes can use Azure Disks or Azure Files:  
+  
+* Azure Disks can be used to create a Kubernetes DataDisk resource. Disks can use Azure Premium storage, backed by high-performance SSDs, or Azure Standard storage, backed by regular HDDs. For most production and development workloads, use Premium storage. Azure Disks are mounted as ReadWriteOnce, so are only available to a single node. For storage volumes that can be accessed by multiple nodes simultaneously, use Azure Files.
+* Azure Files can be used to mount an SMB 3.0 share backed by an Azure Storage account to pods. Files let you share data across multiple nodes and pods. Files can use Azure Standard storage backed by regular HDDs, or Azure Premium storage, backed by high-performance SSDs.
+  
+</details> 
