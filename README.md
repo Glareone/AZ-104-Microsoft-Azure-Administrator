@@ -1,5 +1,17 @@
 # AZ-104 Microsoft Azure Administrator Exam. Materials, Tips, Hints.
 
+<details>
+<summary>Create Azure VM with auto-generated and stored SSH keys</summary>
+
+> az vm create \
+    --resource-group YOUR_RESOURCE_GROUP \
+    --name SampleVM2 \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+
+</details>  
+  
 ## Learning Path
 
 ## Azure Active Directory, Azure Active Directory Domain Services (AD DS)
