@@ -256,3 +256,14 @@ A node that passes a threshold for no longer being needed for 10 minutes by defa
 * ACI lets you quickly deploy container instances without more infrastructure overhead. When you connect with AKS, ACI becomes a secured, logical extension of your AKS cluster. The Virtual Kubelet component is installed in your AKS cluster that presents ACI as a virtual Kubernetes node. Kubernetes can then schedule pods that run as ACI instances through virtual nodes, not as pods on VM nodes directly in your AKS cluster.
   
 </details>
+
+# ASK. Q&A:
+2. The infrastructure team is configuring networking for the Azure Kubernetes service. Which of the following services would be best for internal-only applications that support other workloads within the cluster?
+
+**LoadBalancer**
+
+**ClusterIP**
+That's correct. ClusterIP creates an internal IP address for use within the AKS cluster. This is good for internal-only applications that support other workloads within the cluster.
+
+**NodePort**
+That's incorrect. NodePort creates a port mapping on the underlying node that allows the application to be accessed directly with the node IP address and port.
