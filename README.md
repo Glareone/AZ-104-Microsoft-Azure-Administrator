@@ -106,3 +106,48 @@ Azure Container Instances allocates resources such as CPUs, memory, and optional
 ACI is easier, lightweight solution to run your containerized instances. AKS is more about handling complex scenarios when you need to manage a series of pods, containers in them and so on.
 
 </details>
+
+<details>
+<summary>Azure Kubernetes Service</summary>
+
+## The standard container management runtime focuses on managing individual containers. If you want to scale a complex system with multiple containers working together, this scenario becomes challenging. To make the management process easier, it's common to use a container management platform, such as Kubernetes.
+  
+![image](https://user-images.githubusercontent.com/4239376/188499804-71c3d4d6-81de-481d-97fc-9764aef4d2a3.png)
+  
+* Pools are groups of nodes with identical configurations.
+
+* Nodes are individual virtual machines running containerized applications.
+
+* Pods are a single instance of an application. A pod can contain multiple containers.
+
+* Container is a lightweight and portable executable image that contains software and all of its dependencies.
+
+* Deployment has one or more identical pods managed by Kubernetes.
+
+* Manifest is the YAML file describing a deployment.
+
+## Kubernetes Cluster
+  
+![image](https://user-images.githubusercontent.com/4239376/188499954-766b2e58-98dd-4a8f-b58c-97f8b9f07bc4.png)
+
+### A Kubernetes cluster is divided into two components:
+
+Azure-managed nodes, which provide the core Kubernetes services and orchestration of application workloads.
+Customer-managed nodes that run your application workloads.
+  
+### Azure-managed node
+
+When you create an AKS cluster, a cluster node is automatically created and configured. This node is provided as a managed Azure resource abstracted from the user. You pay only for running agent nodes
+  
+## Nodes and node pools
+To run your applications and supporting services, you need a Kubernetes node. An AKS cluster contains one or more nodes (Azure Virtual Machines) that run the Kubernetes node components and the container runtime.
+  
+* The kubelet is the Kubernetes agent that processes the orchestration requests from the Azure-managed node, and scheduling of running the requested containers. 
+* Virtual networking is handled by the kube-proxy on each node. The proxy routes network traffic and manages IP addressing for services and pods.
+* The container runtime is the component that allows containerized applications to run and interact with additional resources such as the virtual network and storage. AKS clusters using Kubernetes version 1.19 node pools and greater use containerd as its container runtime. AKS clusters using Kubernetes prior to v1.19 for node pools use Moby (upstream docker) as its container runtime.
+  
+Nodes of the same configuration are grouped together into node pools. A Kubernetes cluster contains one or more node pools. The initial number of nodes and size are defined when you create an AKS cluster, which creates a default node pool. This default node pool in AKS contains the underlying VMs that run your agent nodes.
+
+
+  
+</details>
