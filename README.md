@@ -279,3 +279,43 @@ That's correct. ClusterIP creates an internal IP address for use within the AKS 
 
 **NodePort**
 That's incorrect. NodePort creates a port mapping on the underlying node that allows the application to be accessed directly with the node IP address and port.
+
+# Network. Private Links. ExpressRoute. Firewall. Other network-related topics
+
+<details>
+<summary>Networks. Private links. ExpressRoute. Firewall</summary>
+  Private links - could organize access between your private network and Azure resource.  Could be created once network created.  
+  ExpressRoute - Azure - on-premise connection. 
+  
+## Firewall
+    
+![image](https://user-images.githubusercontent.com/4239376/188989290-6bde02fd-2cb8-47e3-91db-11670291e7f3.png)
+    
+### Topology
+  It's recommended to use a hub-spoke network topology when deploying a firewall.
+
+![image](https://user-images.githubusercontent.com/4239376/188988384-1b7a72b7-c469-49fd-b862-272adc8c22fa.png)
+    
+* The hub is a virtual network in Azure that acts as a central point of connectivity to your on-premises network.
+* The spokes are virtual networks that peer with the hub, and can be used to isolate workloads.
+* Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection.
+
+## Azure Firewall Features
+    * Built-in high availability.  load balancers aren't required.
+    * Availability Zones. Azure Firewall can be configured during deployment to span multiple Availability Zones for increased availability.
+    * Network traffic filtering rules. You can centrally create allow or deny network filtering rules by source and destination IP address, port, and protocol. 
+    * Threat intelligence. to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
+    * Azure Monitor - built-in
+
+## Azure Firewall combinations
+    
+![image](https://user-images.githubusercontent.com/4239376/188989451-ea20e496-b26c-472c-bd09-5dfd4fb32b97.png)
+
+* Could be combines with Bastion (RDP\SSH traffic protection to your VMs)
+* Could work together with VPN Gateway (Entry point from on-premise DC)
+
+## Azure Firewall rules
+
+![image](https://user-images.githubusercontent.com/4239376/188990044-04cca4c2-5ecb-4cf2-914d-8aa03fd86f01.png)
+
+</details>    
