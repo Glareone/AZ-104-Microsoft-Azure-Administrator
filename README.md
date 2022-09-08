@@ -280,7 +280,7 @@ That's correct. ClusterIP creates an internal IP address for use within the AKS 
 **NodePort**
 That's incorrect. NodePort creates a port mapping on the underlying node that allows the application to be accessed directly with the node IP address and port.
 
-# Network. Private Links. ExpressRoute. Firewall. Other network-related topics
+# Network. Private Links. ExpressRoute. Firewall. Other network-related topics (ASG, NSG, DNS, VNet, VPN Gateway)
 
 <details>
 <summary>Networks. Private links. ExpressRoute. Firewall (NAT, Application Rules, Network rules)</summary>
