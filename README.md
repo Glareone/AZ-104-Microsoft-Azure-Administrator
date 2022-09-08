@@ -354,6 +354,71 @@ In the above example, if there was incoming traffic on port 80, you would need t
 </details>
 
 <details>
+<summary>VNet Virtual network peering. Connect on-premise and Azure resources not exposing the traffic to the internet. VPN Gateway vs Vnet peernig</summary>
+
+Several business units have identified services in these virtual networks that need to communicate with each other. You need to enable this connectivity, but you don't want to expose these services to the internet. You also want to keep the integration as simple as possible.
+
+![image](https://user-images.githubusercontent.com/4239376/189206782-c6cef64a-ce76-4135-b5e2-945fa6bde316.png)
+
+## How to create
+    
+![image](https://user-images.githubusercontent.com/4239376/189207616-60a3f1f6-2b99-49ee-8a9e-25cf8d40c9e7.png)
+
+1. Create two virtual networks.
+2. Peer the virtual networks.
+  Optional:  
+3. Create virtual machines in each virtual network.
+4. Test the communication between the virtual machines.    
+    
+## Advantages
+
+* Private. Network traffic between peered virtual networks is private. Traffic between the virtual networks is kept on the Microsoft backbone network. No public Internet, gateways, or encryption is required in the communication between the virtual networks.
+* Performance. A low-latency, high-bandwidth connection between resources in different virtual networks.
+* Communication. The ability for resources in one virtual network to communicate with resources in a different virtual network, once the virtual networks are peered.
+* Seamless. The ability to transfer data across Azure subscriptions, deployment models, and across Azure regions.
+* No disruption. No downtime to resources in either virtual network when creating the peering, or after the peering is created.
+
+![image](https://user-images.githubusercontent.com/4239376/189206979-5a706e1f-9be9-484b-97cd-71e0f8ef524a.png)
+
+## VNet is non-transitive
+    
+VNet Peering is nontransitive. When you establish VNet peering between VNet1 and VNet2 and between VNet2 and VNet3, VNet peering capabilities do not apply between VNet1 and VNet3.
+    
+* Implement a multi-level hub and spoke architecture.
+* Overcome the limit on the number of VNet peerings per virtual network.
+  
+![image](https://user-images.githubusercontent.com/4239376/189208010-a12b91d1-20f3-4d92-b663-c607e6e7e382.png)
+    
+## VPN Gateway vs VNet peering
+
+* A VPN gateway is a specific type of VNet gateway that is used to send traffic between an Azure virtual network and an on-premises location over the public internet. You can also use a VPN gateway to send traffic between VNets. Each VNet can have only one VPN gateway.
+    
+[https://azure.microsoft.com/en-us/blog/vnet-peering-and-vpn-gateways/](https://azure.microsoft.com/en-us/blog/vnet-peering-and-vpn-gateways/)
+
+![image](https://user-images.githubusercontent.com/4239376/189207302-17f68f0d-4423-4621-bcbf-efc941a74e0f.png)
+    
+![image](https://user-images.githubusercontent.com/4239376/189207320-54d54ddc-4047-4d2f-8f63-2972c3b57a82.png)
+
+    
+## Which is best for you?
+
+While we offer two ways to connect VNets, based on your specific scenario and needs, you might want to pick one over the other.
+
+* VNet Peering provides a low latency, high bandwidth connection useful in scenarios such as cross-region data replication and database failover scenarios. Since traffic is completely private and remains on the Microsoft backbone, customers with strict data policies prefer to use VNet Peering as public internet is not involved. Since there is no gateway in the path, there are no extra hops, ensuring low latency connections.
+
+* VPN Gateways provide a limited bandwidth connection and is useful in scenarios where encryption is needed, but bandwidth restrictions are tolerable. In these scenarios, customers are also not as latency-sensitive.
+    
+# Q & A
+    
+1. Which of the following allows peered virtual networks to share the gateway and get access to resources?
+* Gateway transit
+    
+2. Virtual network peering is successfully established when the peering status for both virtual network peerings shows which status?
+* Connected
+    
+</details>
+
+<details>
 <summary>ASG. Application Security Group. Advantages. Example</summary>
 
 ## ASG
@@ -492,4 +557,3 @@ Correct. Azure DNS hosts the registered domains. Administrators can control and 
 Correct. The A or AAAA record maps an IP address to a domain. Multiple IP addresses are known as a record set.
 
 </details>
-
