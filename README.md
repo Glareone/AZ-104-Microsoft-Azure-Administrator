@@ -391,3 +391,105 @@ Inside the NSG, create following rules:
 
 
 </details>
+
+<details>
+<summary>DNS. Custom Domain names. DNS zones. DNS record sets. TTL. Private DNS zones</summary>
+
+When you create an Azure subscription, an Azure AD domain is automatically created. This instance of the domain has an initial domain name in the form domainname.onmicrosoft.com. 
+    
+## Information about domain names
+
+* You must be a global administrator to perform domain management tasks. The global administrator is the user who created the subscription.  
+* Domain names in Azure AD are globally unique. When one Azure AD directory has verified a domain name, other directories can't use that name.  
+* Before a custom domain name can be used by Azure AD, the custom domain name must be added to your directory and verified.  
+
+## Domain name verification
+    
+After adding the custom domain name, you must verify ownership of the domain name. Verification is performed by adding a DNS record. The DNS record can be MX or TXT. Once the DNS record is added, Azure will query the DNS domain for the presence of the record. This could take several minutes or several hours. When Azure verifies the presence of the DNS record, it will then add the domain name to the subscription.
+    
+## DNS Zones
+
+* A DNS zone hosts the DNS records for a domain. So, to start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone.
+    
+* To delegate your domain to Azure DNS, you first need to know the name server names for your zone. Each time a DNS zone is created Azure DNS allocates name servers from a pool. Once the Name Servers are assigned, Azure DNS automatically creates authoritative NS records in your zone.
+    
+![image](https://user-images.githubusercontent.com/4239376/189201476-c950dec5-ccb9-40ff-ad99-7de85f2bd18e.png)
+
+## Child Domains
+    
+  If you want to set up a separate child zone, you can delegate a subdomain in Azure DNS. For example, after configuring contoso.com in Azure DNS, you could configure a separate child zone for partners.contoso.com.
+
+  Setting up a subdomain follows the same process as typical delegation. The only difference is that NS records must be created in the parent zone contoso.com in Azure DNS, rather than in the domain registrar.
+    
+    
+## DNS Record Sets
+    
+It's important to understand the difference between DNS record sets and individual DNS records. A record set is a collection of records in a zone that have the same name and are the same type.
+    
+![image](https://user-images.githubusercontent.com/4239376/189202149-0d2e01a8-83e3-4796-a28b-564edb83bc2a.png)
+
+* A record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear on the Azure DNS name servers. Record sets of type CNAME can contain one record at most.
+    
+* The Add record set page will change depending on the type of record you select. For an A record, you will need the TTL (Time to Live) and IP address. The time to live, or TTL, specifies how long each record is cached by clients before being requeried.
+    
+![image](https://user-images.githubusercontent.com/4239376/189202362-e375ea41-af6f-4115-8089-9a74cb634eaf.png)
+
+## Private DNS zones
+
+When using private DNS zones, you can use your own custom domain names rather than the Azure-provided names. Using custom domain names helps you to tailor your virtual network architecture to best suit your organization's needs. It provides name resolution for virtual machines (VMs) within a virtual network and between virtual networks. Additionally, you can configure zones names with a split-horizon view, which allows a private and a public DNS zone to share the name.
+    
+![image](https://user-images.githubusercontent.com/4239376/189202579-9440d2a9-a961-4470-b38c-3c0d146277df.png)
+    
+## Azure private DNS benefits
+    
+* Removes the need for custom DNS solutions. Previously, many customers created custom DNS solutions to manage DNS zones in their virtual network. You can now perform DNS zone management by using the native Azure infrastructure. This removes the burden of creating and managing custom DNS solutions.
+* Use all common DNS records types. Azure DNS supports A, AAAA, CNAME, MX, PTR, SOA, SRV, and TXT records.
+* Automatic hostname record management. Along with hosting your custom DNS records, Azure automatically maintains hostname records for the VMs in the specified virtual networks. In this scenario, you can optimize the domain names you use without needing to create custom DNS solutions or modify applications.
+* Hostname resolution between virtual networks. Unlike Azure-provided host names, private DNS zones can be shared between virtual networks. This capability simplifies cross-network and service-discovery scenarios, such as virtual network peering.
+* Familiar tools and user experience. To reduce the learning curve, this new offering uses well-established Azure DNS tools (PowerShell, Azure Resource Manager templates, and the REST API).
+* Split-horizon DNS support. With Azure DNS, you can create zones with the same name that resolve to different answers from within a virtual network and from the public internet. A typical scenario for split-horizon DNS is to provide a dedicated version of a service for use inside your virtual network.
+* Available in all Azure regions. The Azure DNS private zones feature is available in all Azure regions in the Azure public cloud.
+    
+    
+### Private DNS. Scenario 1: Name resolution scoped to a single virtual network
+
+![image](https://user-images.githubusercontent.com/4239376/189202934-3b8c5c15-cff8-4302-b6d6-ed74931a6409.png)
+
+  In this scenario, you have a virtual network and resources in Azure, including virtual machines (VMs). You want to resolve the resources from within the virtual network via a specific domain name (DNS zone). You also need the name resolution to be private and not accessible from the internet. Furthermore, for the VMs within the VNET, you need Azure to automatically register them into the DNS zone.
+
+  In the above diagram, VNET1 contains two VMs (VM1 and VM2). Each VM has a private IP address. When you create a Private Zone (contoso.lab) and link it to VNet1, Azure DNS will automatically create two A records in the zone if you enable auto registration in the link configuration. DNS queries from VM1 to resolve VM2.contoso.lab will receive a DNS response that contains the Private IP of VM2. And, a Reverse DNS query (PTR) for the Private IP of VM1 (10.0.0.4) issued from VM2 will receive a DNS response that contains the FQDN of VM1, as expected.
+    
+### Scenario 2: Name resolution for multiple networks    
+    
+![image](https://user-images.githubusercontent.com/4239376/189203157-41fb8499-4584-44fb-9227-d9ae421d8e96.png)
+    
+  Name resolution across multiple virtual networks is probably the most common usage for DNS private zones. The following diagram shows a simple version of this scenario where there are only two virtual networks - VNet1 and VNet2.
+    
+* VNet1 is designated as a Registration virtual network and VNET2 is designated as a Resolution virtual network.
+* The intent is for both virtual networks to share a common zone contoso.lab.
+* The Resolution and Registration virtual networks are linked to the zone.
+* DNS records for the Registration VNet VMs are automatically created. You can manually add DNS records for VMs in the Resolution virtual network.
+    
+#### In this configuration:
+
+* DNS queries across the virtual networks are resolved. A DNS query from a VM in the Resolution VNet, for a VM in the Registration VNet, will receive a DNS response containing the Private IP of VM.
+* Reverse DNS queries are scoped to the same virtual network. A Reverse DNS (PTR) query from a VM in the Resolution virtual network, for a VM in the Registration VNet, will receive a DNS response containing the NXDOMAIN of the VM. But, a reverse DNS query from a VM in the Resolution VNet, for a VM in the same VNet, will receive the FQDN.
+    
+# Q & A
+    
+1. Azure Private DNS allows which of the following?
+    
+* Lets organizations manage and resolve domain names in a virtual network without adding a custom DNS solution.
+Correct. Azure Private DNS manages and resolves domain names in a virtual network without adding a custom DNS solution.
+
+2. Which of the following best summarizes the purpose of Azure DNS?
+* Manages and hosts the registered domain and associated records.
+Correct. Azure DNS hosts the registered domains. Administrators can control and configure the domain records, like A, CNAME, MX, and set up alias records.
+
+3. What type of DNS record should be created to map one or more IP addresses against a single domain?
+
+* A or AAAA
+Correct. The A or AAAA record maps an IP address to a domain. Multiple IP addresses are known as a record set.
+
+</details>
+
