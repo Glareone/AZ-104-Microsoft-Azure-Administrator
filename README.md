@@ -283,7 +283,7 @@ That's incorrect. NodePort creates a port mapping on the underlying node that al
 # Network. Private Links. ExpressRoute. Firewall. Other network-related topics
 
 <details>
-<summary>Networks. Private links. ExpressRoute. Firewall</summary>
+<summary>Networks. Private links. ExpressRoute. Firewall (NAT, Application Rules, Network rules)</summary>
   Private links - could organize access between your private network and Azure resource.  Could be created once network created.  
   ExpressRoute - Azure - on-premise connection. 
   
@@ -318,4 +318,76 @@ That's incorrect. NodePort creates a port mapping on the underlying node that al
 
 ![image](https://user-images.githubusercontent.com/4239376/188990044-04cca4c2-5ecb-4cf2-914d-8aa03fd86f01.png)
 
-</details>    
+</details>  
+
+<details>
+<summary>NSG. Network Security Group. DMZ</summary>
+
+## NSG
+
+You can limit network traffic to resources in a virtual network using a network security group (NSG). A network security group contains a list of security rules that allow or deny inbound or outbound network traffic. An NSG can be associated to a subnet or a network interface. A network security group can be associated multiple times.
+
+There are three default inbound security rules.  
+
+![image](https://user-images.githubusercontent.com/4239376/189196019-03aa54d1-7b1b-4583-85ce-72aa6c41add2.png)
+
+There are three default outbound security rules.  
+
+![image](https://user-images.githubusercontent.com/4239376/189196054-42265689-d63b-41bd-8b54-234c4478e3e1.png)
+
+You can add more rules by specifying:
+
+* Name
+* Priority
+* Port
+* Protocol (Any, TCP, UDP)
+*Source (Any, IP Addresses, Service tag)
+* Destination (Any, IP Addresses, Virtual Network)
+* Action (Allow or Deny)
+
+## Example:
+
+![image](https://user-images.githubusercontent.com/4239376/189196512-62f8f17f-c23f-471a-9547-1ceaa11fe995.png)
+
+In the above example, if there was incoming traffic on port 80, you would need to have the NSG at the subnet level ALLOW port 80. You would also need another N S G with an ALLOW rule on port 80 at the NIC level.
+
+</details>
+
+<details>
+<summary>ASG. Application Security Group. Advantages. Example</summary>
+
+## ASG
+
+Application Security Groups (ASGs) ) logically group virtual machines by workload and define network security rules based on those groups. ASGs work in the same way as NSGs but provide an application-centric way of looking at your infrastructure.
+
+## Example: 
+
+![image](https://user-images.githubusercontent.com/4239376/189197524-fb66aa41-5de5-4332-990b-007f954edcf8.png)
+
+* Let’s consider a usage case for an online retailer. In this scenario, it's important to control the network traffic to the application virtual machines. Here are the requirements.
+
+* Shoppers access the company’s product catalog hosted on Web Servers. The Web Servers must be accessible from the internet over HTTP port 80 and HTTPS port 443.
+
+* Inventory information is located on Database Servers. The Database Servers must be accessible over port 1433. Only the Web Servers should have access to the Database Servers.
+
+### Answer:
+
+For this scenario, we would:
+
+Create an ASG (WebASG) that groups the Web Servers. Create another ASG (DBASG) that groups the Database Servers. Assign the corresponding server NICs to each ASG.  
+Inside the NSG, create following rules:  
+
+* Priority: 100, allow access from the internet to WebASG with port 80 and 443.
+* Priority: 110, allow access from WebASG to DBASG with port 1433.
+* Priority: 120, deny access from anywhere to DBASG with port 1433.
+
+## ASG Advantages
+
+* The configuration doesn’t require specific IP addresses. It would be difficult to specify IP addresses because of the number of servers and because the IP addresses could change. You also don't need to arrange the servers into a specific subnet.
+
+* This configuration doesn't require multiple rule sets. You don't need to create a separate rule for each VM. You can dynamically apply new rules to ASG. New security rules are automatically applied to all the VMs in the Application Security Group.
+
+* The configuration is easy to maintain and understand since is based on workload usage.
+
+
+</details>
