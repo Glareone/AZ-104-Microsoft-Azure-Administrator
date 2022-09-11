@@ -419,6 +419,49 @@ While we offer two ways to connect VNets, based on your specific scenario and ne
 </details>
 
 <details>
+<summary>VPN Gateway. SKU. Configurations</summary>
+
+![image](https://user-images.githubusercontent.com/4239376/189523382-b5983f25-9185-4b72-b3f6-cee2b93fe86b.png)
+
+**A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You also use a VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network.**
+
+* Site-to-site connections connect on-premises datacenters to Azure virtual networks
+* VNet-to-VNet connections connect Azure virtual networks (custom)
+* Point-to-site (User VPN) connections connect individual devices to Azure virtual networks
+
+![image](https://user-images.githubusercontent.com/4239376/189523400-ffa6ac9d-6b80-4ffc-aaa7-e27ce9517294.png)
+
+## VPN Types. Route-based vs Policy-based
+
+  VPN type. Route based or Policy based. Most VPN types are Route-based. The type of VPN you choose depends on the make and model of your VPN device, and the kind of VPN connection you intend to create. Typical route-based gateway scenarios include point-to-site, inter-virtual network, or multiple site-to-site connections. Route-based is also selected when you coexist with an ExpressRoute gateway or if you need to use IKEv2. Policy-based gateways support only IKEv1.
+
+## SKU Types
+
+  Use the drop-down to select a gateway SKU. Your choice will affect the number of tunnels you can have and the aggregate throughput benchmark. The benchmark is based on measurements of multiple tunnels aggregated through a single gateway. It is not a guaranteed throughput due to Internet traffic conditions and your application behaviors.
+  
+Generations:   
+* Generation1 
+* Generation2. 
+
+  You cannot change generations or SKUs across generations. Basic and VpnGw1 SKUs are only supported in Generation1. VpnGw4 and VpnGw5 SKUs are only supported in Generation2.
+ 
+![image](https://user-images.githubusercontent.com/4239376/189523479-56aa01b6-e6ee-4be9-b490-e7cd193adb58.png)
+
+## VPN Gateway Type. Route-based VPNs vs Policy-based
+
+* Route-based VPNs. Route-based VPNs use routes in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy (or traffic selector) for Route-based VPNs are configured as any-to-any (or wild cards).
+
+* Policy-based VPNs. Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the IPsec policies configured with the combinations of address prefixes between your on-premises network and the Azure VNet. The policy (or traffic selector) is defined as an access list in the VPN device configuration. When using a Policy-based VPN, keep in mind the following limitations:
+
+Extra details:  
+
+* Policy-Based VPNs can only be used on the Basic gateway SKU and is not compatible with other gateway SKUs.
+* You can have only one tunnel when using a Policy-based VPN.
+* You can only use Policy-based VPNs for S2S connections, and only for certain configurations. Most VPN Gateway configurations require a Route-based VPN.
+  
+</details>
+
+<details>
 <summary>ASG. Application Security Group. Advantages. Example</summary>
 
 ## ASG
