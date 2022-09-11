@@ -496,9 +496,27 @@ Set up the on-premises VPN gateway and decive you are going to use connecting to
 </details>
 
 <details>
-<summary>VPN. ExpressRoute + Site-to-site vpn as a failover path</summary>
+<summary>VPN. ExpressRoute + Site-to-site vpn as a failover path. ExpressRoute vs VPN Gateway.</summary>
   
 ![image](https://user-images.githubusercontent.com/4239376/189525781-39ac2fae-7379-4375-82c2-0336d8c62746.png)
+    
+## Consideration between options
+![image](https://user-images.githubusercontent.com/4239376/189525862-2bc3b9ac-140c-447c-814f-eb85070c30dc.png)
+    
+</details>
+
+<details>
+<summary>Virtual WAN. WAN Types</summary>
+  
+Azure Virtual WAN is a networking service that provides optimized and automated branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to. You use the Azure backbone to connect branches and enjoy branch-to-VNet connectivity.
+    
+Azure Virtual WAN brings together many Azure cloud connectivity services such as site-to-site VPN, User VPN (point-to-site), and ExpressRoute into a single operational interface. 
+    
+![image](https://user-images.githubusercontent.com/4239376/189525905-aa8eeaf7-73c7-4874-9524-8c1b8f87dd96.png)
+
+## WAN Types
+![image](https://user-images.githubusercontent.com/4239376/189525921-50d488af-b03f-44e6-9211-ab2489a36faf.png)
+
     
 </details>
 
