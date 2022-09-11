@@ -419,7 +419,7 @@ While we offer two ways to connect VNets, based on your specific scenario and ne
 </details>
 
 <details>
-<summary>VPN Gateway. SKU. Configurations</summary>
+<summary>VPN Gateway. SKU. Configurations. Connect to VPN Gateway network</summary>
 
 ![image](https://user-images.githubusercontent.com/4239376/189523382-b5983f25-9185-4b72-b3f6-cee2b93fe86b.png)
 
@@ -469,6 +469,14 @@ Extra details:
 * You can have only one tunnel when using a Policy-based VPN.
 * You can only use Policy-based VPNs for S2S connections, and only for certain configurations. Most VPN Gateway configurations require a Route-based VPN.
   
+## Connect to VPN Network
+    
+![image](https://user-images.githubusercontent.com/4239376/189523759-ba5f4aef-d802-4629-9ab5-bd31f3991a97.png)
+   
+* Name. Enter a name for your connection.
+* Connection type. Select Site-to-Site (IPSec) from the drop-down.
+* Shared key (PSK). In this field, enter a shared key for your connection. You can generate or create this key yourself. In a site-to-site connection, the key you use is the same for your on-premises device and your virtual network gateway connection.
+    
 </details>
 
 <details>
