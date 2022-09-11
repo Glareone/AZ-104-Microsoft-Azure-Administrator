@@ -492,7 +492,13 @@ Set up the on-premises VPN gateway and decive you are going to use connecting to
     
 ![image](https://user-images.githubusercontent.com/4239376/189523923-39e51b49-1e0f-4b28-9abf-13cee3b4b673.png)
 ![image](https://user-images.githubusercontent.com/4239376/189523932-a6fa3ae7-b62d-4fa2-845f-8e6eab6ee3cb.png)
+   
+</details>
 
+<details>
+<summary>VPN. ExpressRoute + Site-to-site vpn as a failover path</summary>
+  
+![image](https://user-images.githubusercontent.com/4239376/189525781-39ac2fae-7379-4375-82c2-0336d8c62746.png)
     
 </details>
 
