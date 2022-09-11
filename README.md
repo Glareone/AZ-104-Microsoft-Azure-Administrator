@@ -471,6 +471,14 @@ Extra details:
   
 ## Connect to VPN Network
     
+### Prerequisites
+Set up the on-premises VPN gateway and decive you are going to use connecting to VPN Gateway in Azure.
+
+    To configure your VPN device, you will need:
+
+* A shared key. The same shared key that you specify when creating the VPN connection.
+* The public IP address of your VPN gateway. The IP address can be new or existing.
+    
 ![image](https://user-images.githubusercontent.com/4239376/189523759-ba5f4aef-d802-4629-9ab5-bd31f3991a97.png)
    
 * Name. Enter a name for your connection.
