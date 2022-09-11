@@ -11,8 +11,6 @@
     --generate-ssh-keys \
 
 </details>  
-  
-## Learning Path
 
 ## Azure Active Directory, Azure Active Directory Domain Services (AD DS)
 
@@ -698,13 +696,67 @@ Azure uses system routes to direct network traffic between virtual machines, on-
 
 </details>
 
+# Load Balancing. Application Gateway. Load Balancer. Front Door
+
+<details>
+<summary>Azure Application Gateway. Front Door</summary>
+
+# Application Gateway. Features
+    
+![image](https://user-images.githubusercontent.com/4239376/189547356-3fc92ea8-6f3d-41b8-8ce1-b9e9a6241bff.png)
+
+The Application Gateway uses application layer routing. Application layer routing routes traffic to a pool of web servers based on the URL of a request. The back-end pool can include Azure virtual machines, Azure virtual machine scale sets, Azure App Service, and even on-premises servers.
+    
+* Support for the HTTP, HTTPS, HTTP/2 and WebSocket protocols.
+* A web application firewall to protect against web application vulnerabilities.
+* End-to-end request encryption.
+* Autoscaling, to dynamically adjust capacity as your web traffic load change.
+    
+Can work together with WAF
+    
+![image](https://user-images.githubusercontent.com/4239376/189547415-429e43d0-9c2d-4a51-8185-aabc75bae9f3.png)
+
+# Applicateion Gateway Inside
+    
+![image](https://user-images.githubusercontent.com/4239376/189547549-0307f644-1a95-4116-be5b-64122e18536f.png)
+
+![image](https://user-images.githubusercontent.com/4239376/189547556-eccd0a5e-56b1-4a30-a69b-16602303b48e.png)
+
+![image](https://user-images.githubusercontent.com/4239376/189547561-2967a0ed-37a5-47e0-92af-694ed1f264f5.png)
+
+    
+## Application Gateway Routing. Multiple Site routing. Path-based routing
+ 
+### Multiple Site Routing:
+    
+![image](https://user-images.githubusercontent.com/4239376/189547439-32e11095-6a41-426c-9cc2-729d7fa40e62.png)
+
+Multiple site routing configures more than one web application on the same application gateway instance. In a multi-site configuration, you register multiple DNS names (CNAMEs) for the IP address of the Application Gateway, specifying the name of each site. 
+    
+### Path-based routing
+    
+![image](https://user-images.githubusercontent.com/4239376/189547486-94c2c524-0b51-4291-a477-0cb0caac14de.png)
+
+Path-based routing sends requests with different URL paths to different pools of back-end servers. For example, you could direct requests with the path /video/* to a back-end pool containing servers that are optimized to handle video streaming, and direct /images/* requests to a pool of servers that handle image retrieval.
+    
+# Front Door. Features
+    
+Azure Front Door supports dynamic site acceleration (DSA), TLS/SSL offloading and end to end TLS, Web Application Firewall, cookie-based session affinity, url path-based routing, free certificates and multiple domain management, and others.
+
+# Application gateway vs Front Door
+While both Front Door and Application Gateway are layer 7 (HTTP/HTTPS) load balancers, the primary difference is that Front Door is a non-regional service whereas Application Gateway is a regional service. While Front Door can load balance between your different scale units/clusters/stamp units across regions, Application Gateway allows you to load balance between your VMs/containers etc. that is within the scale unit.
+    
+</details>
+
 # BACKUP Services: Site Recovery. Azure Backups. Managed Disks Snapshots
 
-![image](https://user-images.githubusercontent.com/4239376/189546975-e0d74a97-682a-402d-9e9e-6e2e4c711b8b.png)
+![image](https://user-images.githubusercontent.com/4239376/189547585-7bd8bb00-468d-4ae4-b3b8-1be016a58260.png)
 
 <details>
 <summary>Snapshots. Managed Disks Snapshots. Recovery Services Vault</summary>
 
+![image](https://user-images.githubusercontent.com/4239376/189546975-e0d74a97-682a-402d-9e9e-6e2e4c711b8b.png)
+    
 ![image](https://user-images.githubusercontent.com/4239376/189547008-eb8088ed-71db-47fc-9d0b-73a48a60072b.png)
 
 </details>
