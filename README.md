@@ -697,3 +697,62 @@ Azure uses system routes to direct network traffic between virtual machines, on-
 ![image](https://user-images.githubusercontent.com/4239376/189526460-3577f026-ee04-400a-b26c-2c89fcc55d58.png)
 
 </details>
+
+# BACKUP Services: Site Recovery. Azure Backups. Managed Disks Snapshots
+
+![image](https://user-images.githubusercontent.com/4239376/189546975-e0d74a97-682a-402d-9e9e-6e2e4c711b8b.png)
+
+<details>
+<summary>Snapshots. Managed Disks Snapshots. Recovery Services Vault</summary>
+
+![image](https://user-images.githubusercontent.com/4239376/189547008-eb8088ed-71db-47fc-9d0b-73a48a60072b.png)
+
+</details>
+
+<details>
+<summary>Azure Backup. Azure Backup Server. Recovery Services Vault</summary>
+
+![image](https://user-images.githubusercontent.com/4239376/189547050-8ba535c0-9b7f-48f9-8ce8-5e376d109b07.png)
+
+An Azure backup job consists of two phases. First, a virtual machine snapshot is taken. Second, the virtual machine snapshot is transferred to the Azure Recovery Services vault.
+
+## Recovery Services Vault
+
+**Recovery Services vault** is a storage entity in Azure that houses data. The data is typically copies of data, or configuration information for virtual machines (VMs), workloads, servers, or workstations. You can use Recovery Services vaults to hold backup data for various Azure services such as IaaS VMs (Linux or Windows) and Azure SQL databases. Recovery Services vaults support System Center DPM, Windows Server, Azure Backup Server, and more. Recovery Services vaults make it easy to organize your backup data, while minimizing management overhead.  
+
+**Can be used to backup on-premises virtual machines including: Hyper-V, VMware, System State, and Bare Metal Recovery.**
+
+![image](https://user-images.githubusercontent.com/4239376/189547107-f1187c07-ebba-4863-847b-43b78113a6cb.png)
+
+## Azure Backup vs Azure Backup Server
+
+![image](https://user-images.githubusercontent.com/4239376/189547139-ea301353-d323-43e8-b58f-f16e933a58f4.png)
+
+
+</details>
+
+<details>
+<summary>Azure Site Recovery</summary>
+
+Site Recovery helps ensure business continuity by keeping business apps and workloads running during outages. Site Recovery replicates workloads running on physical and virtual machines (VMs) from a primary site to a secondary location. When an outage occurs at your primary site, you fail over to secondary location, and access apps from there. After the primary location is running again, you can fall back to it.
+
+![image](https://docs.microsoft.com/en-us/training/wwl-azure/configure-virtual-machine-backups/media/site-recovery-scenarios-388c71fd.png)
+
+## Scenarios
+
+* Replicate Azure VMs from one Azure region to another.
+* Replicate on-premises VMware VMs, Hyper-V VMs, physical servers (Windows and Linux), Azure Stack VMs to Azure.
+* Replicate AWS Windows instances to Azure.
+* Replicate on-premises VMware VMs, Hyper-V VMs managed by System Center VMM, and physical servers to a secondary site.
+
+## Features
+
+* Using Site Recovery, you can set up and manage replication, failover, and failback from a single location in the Azure portal.
+* Replication to Azure eliminates the cost and complexity of maintaining a secondary datacenter.
+* Site Recovery orchestrates replication without intercepting application data. When you replicate to Azure, data is stored in Azure storage, with the resilience that it provides. When failover occurs, Azure VMs are created, based on the replicated data.
+* Site Recovery provides continuous replication for Azure VMs and VMware VMs, and replication frequency as low as 30 seconds for Hyper-V.
+* You can replicate using recovery points with application-consistent snapshots. These snapshots capture disk data, all data in memory, and all transactions in process.
+* You can run planned failovers for expected outages with zero-data loss, or unplanned failovers with minimal data loss (depending on replication frequency) for unexpected disasters. You can easily fall back to your primary site when it's available again.
+* Site Recovery integrates with Azure for simple application network management, including reserving IP addresses, configuring load-balancers, and integrating Azure * * Traffic Manager for efficient network switchovers.
+
+</details>
