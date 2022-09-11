@@ -321,6 +321,23 @@ That's incorrect. NodePort creates a port mapping on the underlying node that al
 </details>  
 
 <details>
+<summary>Service Endpoint. Service Endpoint vs Private Link</summary>
+
+A virtual network service endpoint provides the identity of your virtual network to the Azure service. Once service endpoints are enabled in your virtual network, you can secure Azure service resources to your virtual network by adding a virtual network rule to the resources.
+    
+![image](https://user-images.githubusercontent.com/4239376/189526580-ff10eb7f-3e4c-45fd-8f98-ae23c18baf07.png)
+
+## Compare with Private link
+
+Private Link is a newer solution than Service Endpoints.  
+See alse here: https://samcogan.com/service-endpoints-and-private-link-whats-the-difference/
+![image](https://user-images.githubusercontent.com/4239376/189526610-af2494b9-6289-4fd9-b9f7-2c6348e13773.png)
+
+The key difference between Private Link and Service Endpoints is that with Private Link you are injecting the multi-tenant PaaS resource into your virtual network. With Service Endpoints, traffic still left you vNet and hit the public endpoint of the PaaS resource, with Private Link the PaaS resource sits within your vNet and gets a private IP on your vNet. When you send traffic to the PaaS resource, it does not leave the virtual network.
+    
+</details>
+
+<details>
 <summary>NSG. Network Security Group. DMZ</summary>
 
 ## NSG
@@ -657,5 +674,17 @@ Correct. Azure DNS hosts the registered domains. Administrators can control and 
 
 * A or AAAA
 Correct. The A or AAAA record maps an IP address to a domain. Multiple IP addresses are known as a record set.
+
+</details>
+
+<details>
+<summary>User-defined routes (UDR). System routes.</summary>
+
+## initial scheme
+Azure uses system routes to direct network traffic between virtual machines, on-premises networks, and the Internet. 
+![image](https://user-images.githubusercontent.com/4239376/189526414-ea3e491a-307d-4d27-864b-70dcd591caf2.png)
+
+## User-defined routes when you want to customize behavior
+![image](https://user-images.githubusercontent.com/4239376/189526460-3577f026-ee04-400a-b26c-2c89fcc55d58.png)
 
 </details>
