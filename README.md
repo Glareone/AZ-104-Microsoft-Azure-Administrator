@@ -334,6 +334,15 @@ See alse here: https://samcogan.com/service-endpoints-and-private-link-whats-the
 ![image](https://user-images.githubusercontent.com/4239376/189526610-af2494b9-6289-4fd9-b9f7-2c6348e13773.png)
 
 The key difference between Private Link and Service Endpoints is that with Private Link you are injecting the multi-tenant PaaS resource into your virtual network. With Service Endpoints, traffic still left you vNet and hit the public endpoint of the PaaS resource, with Private Link the PaaS resource sits within your vNet and gets a private IP on your vNet. When you send traffic to the PaaS resource, it does not leave the virtual network.
+
+## Private Link case
+
+![image](https://user-images.githubusercontent.com/4239376/189526704-f1432613-af85-4ccb-9e3b-1e2e5b59d3ac.png)
+
+* Private connectivity to services on Azure. Traffic remains on the Microsoft network, with no public internet access. Connect privately to services running in other Azure regions. Private Link is global and has no regional restrictions.
+* Integration with on-premises and peered networks. Access private endpoints over private peering or VPN tunnels from on-premises or peered virtual networks. Microsoft hosts the traffic, so you don’t need to set up public peering or use the internet to migrate your workloads to the cloud.
+* Protection against data exfiltration for Azure resources. Use Private Link to map private endpoints to Azure PaaS resources. When there is a security incident within your network, only the mapped resource would be accessible, eliminating the threat of data exfiltration.
+* Services delivered directly to your customers’ virtual networks. Privately consume Azure PaaS, Microsoft partner, and your own services in your virtual networks on Azure. Private Link works across Azure Active Directory (Azure AD) tenants to help unify your experience across services. Send, approve, or reject requests directly, without permissions or role-based access controls.
     
 </details>
 
