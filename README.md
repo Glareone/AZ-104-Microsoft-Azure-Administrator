@@ -696,6 +696,25 @@ Azure uses system routes to direct network traffic between virtual machines, on-
 
 </details>
 
+<details>
+<summary>Network Watcher. Visualize Network Topology</summary>
+
+* Regional service
+* Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. 
+* Verify IP Flow: Quickly diagnose connectivity issues from or to the internet and from or to the on-premises environment.
+> When you deploy a VM, Azure applies several default security rules to the VM. These rules allow or deny traffic to or from the VM. You might override Azure's default rules or create additional rules. At some point, a VM may become unable to communicate with other resources, because of a security rule.
+
+![image](https://user-images.githubusercontent.com/4239376/189740671-1ab02cc6-1682-47c9-b179-adf3579c4426.png)
+
+* Next Hop: To determine if traffic is being directed to the intended destination by showing the next hop. This will help determine if networking routing is correctly configured.
+
+* Visualize Network Topology
+
+![image](https://user-images.githubusercontent.com/4239376/189740739-f288ee2d-2941-469f-b6a1-51d488208095.png)
+
+
+</details>
+
 # Load Balancing. Application Gateway. Load Balancer. Front Door
 
 <details>
