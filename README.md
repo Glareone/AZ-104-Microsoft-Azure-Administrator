@@ -822,19 +822,11 @@ While both Front Door and Application Gateway are layer 7 (HTTP/HTTPS) load bala
 </details>
 
 <details>
-<summary>Azure Backup. Azure Backup Server. Recovery Services Vault</summary>
+<summary>Azure Backup. Azure Backup Server</summary>
 
 ![image](https://user-images.githubusercontent.com/4239376/189547050-8ba535c0-9b7f-48f9-8ce8-5e376d109b07.png)
 
 An Azure backup job consists of two phases. First, a virtual machine snapshot is taken. Second, the virtual machine snapshot is transferred to the Azure Recovery Services vault.
-
-## Recovery Services Vault
-
-**Recovery Services vault** is a storage entity in Azure that houses data. The data is typically copies of data, or configuration information for virtual machines (VMs), workloads, servers, or workstations. You can use Recovery Services vaults to hold backup data for various Azure services such as IaaS VMs (Linux or Windows) and Azure SQL databases. Recovery Services vaults support System Center DPM, Windows Server, Azure Backup Server, and more. Recovery Services vaults make it easy to organize your backup data, while minimizing management overhead.  
-
-**Can be used to backup on-premises virtual machines including: Hyper-V, VMware, System State, and Bare Metal Recovery.**
-
-![image](https://user-images.githubusercontent.com/4239376/189547107-f1187c07-ebba-4863-847b-43b78113a6cb.png)
 
 ## Azure Backup vs Azure Backup Server
 
@@ -867,4 +859,33 @@ Site Recovery helps ensure business continuity by keeping business apps and work
 * You can run planned failovers for expected outages with zero-data loss, or unplanned failovers with minimal data loss (depending on replication frequency) for unexpected disasters. You can easily fall back to your primary site when it's available again.
 * Site Recovery integrates with Azure for simple application network management, including reserving IP addresses, configuring load-balancers, and integrating Azure * * Traffic Manager for efficient network switchovers.
 
+</details>
+    
+<details>
+<summary>Recovery Services vault</summary>
+    
+Recovery Services vaults store backup data for various Azure services such as IaaS VMs (Linux or Windows) and Azure SQL databases. Recovery Services vaults support System Center DPM, Windows Server, Azure Backup Server, and other services. Recovery Services vaults make it easy to organize your backup data, while minimizing management overhead.
+    
+![image](https://user-images.githubusercontent.com/4239376/190237732-f37b6acb-0271-4c20-b413-5985b6198b38.png)
+
+## Recovery Services Vault
+
+**Recovery Services vault** is a storage entity in Azure that houses data. The data is typically copies of data, or configuration information for virtual machines (VMs), workloads, servers, or workstations. You can use Recovery Services vaults to hold backup data for various Azure services such as IaaS VMs (Linux or Windows) and Azure SQL databases. Recovery Services vaults support System Center DPM, Windows Server, Azure Backup Server, and more. Recovery Services vaults make it easy to organize your backup data, while minimizing management overhead.  
+
+**Can be used to backup on-premises virtual machines including: Hyper-V, VMware, System State, and Bare Metal Recovery.**
+
+![image](https://user-images.githubusercontent.com/4239376/189547107-f1187c07-ebba-4863-847b-43b78113a6cb.png)
+    
+</details>
+    
+<details>
+<summary>On-premises file and folder backups</summary>
+
+![image](https://user-images.githubusercontent.com/4239376/190238182-331dfcf4-c1bf-484f-ae29-e5153e321986.png)
+
+1. Create the recovery services vault. Within your Azure subscription, you will need to create a recovery services vault for the backups.
+2. Download the agent and credential file. The recovery services vault provides a link to download the Azure Backup Agent. The Backup Agent will be installed on the local machine. There is also a credentials file that is required during the installation of the agent. You must have the latest version of the agent. Versions of the agent below 2.0.9083.0 must be upgraded by uninstalling and reinstalling the agent.
+3. Install and register agent. The installer provides a wizard to configure the installation location, proxy server, and passphrase information. The downloaded credential file will be used to register the agent.
+4. Configure the backup. Use the agent to create a backup policy including when to backup, what to backup, how long to retain items, and settings like network throttling.
+    
 </details>
