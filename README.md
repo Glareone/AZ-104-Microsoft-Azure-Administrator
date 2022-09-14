@@ -378,7 +378,7 @@ In the above example, if there was incoming traffic on port 80, you would need t
 </details>
 
 <details>
-<summary>VNet Virtual network peering. Connect on-premise and Azure resources not exposing the traffic to the internet. VPN Gateway vs Vnet peernig</summary>
+<summary>VNet Virtual network peering. Global Peering. Vnet Peering. Connect on-premise and Azure resources not exposing the traffic to the internet. VPN Gateway vs Vnet peernig</summary>
 
 Several business units have identified services in these virtual networks that need to communicate with each other. You need to enable this connectivity, but you don't want to expose these services to the internet. You also want to keep the integration as simple as possible.
 
@@ -394,7 +394,7 @@ Several business units have identified services in these virtual networks that n
 3. Create virtual machines in each virtual network.
 4. Test the communication between the virtual machines.    
     
-## Advantages
+### Advantages
 
 * Private. Network traffic between peered virtual networks is private. Traffic between the virtual networks is kept on the Microsoft backbone network. No public Internet, gateways, or encryption is required in the communication between the virtual networks.
 * Performance. A low-latency, high-bandwidth connection between resources in different virtual networks.
@@ -412,7 +412,23 @@ VNet Peering is nontransitive. When you establish VNet peering between VNet1 and
 * Overcome the limit on the number of VNet peerings per virtual network.
   
 ![image](https://user-images.githubusercontent.com/4239376/189208010-a12b91d1-20f3-4d92-b663-c607e6e7e382.png)
-    
+
+
+## VNet Global Peering vs Virtual Network Peering
+
+* Virtual network peering connects virtual networks in the same Azure region, such as two virtual networks in North Europe.
+* Global virtual network peering connects virtual networks that are in different Azure regions, such as a virtual network in North Europe and a virtual network in West Europe.
+
+## Vnet Peering Usecases
+
+* Cross-subscription virtual network peering. You can use virtual network peering even when both virtual networks are in different subscriptions. This set up might be necessary for mergers and acquisitions or to connect virtual networks in subscriptions that different departments manage. Virtual networks can be in different subscriptions, and the subscriptions can use the same or different Azure Active Directory tenants.
+
+* Gateway transit. You can connect to your on-premises network from a peered virtual network if you enable gateways transit from a virtual network that has a VPN gateway. 
+
+* Overlapping address spaces. IP address spaces of connected networks within Azure, between Azure and your on-premises network can't overlap. 
+![image](https://user-images.githubusercontent.com/4239376/190232252-14f36ff7-24d3-4537-8f99-b0dcc1b16433.png)
+
+
 ## VPN Gateway vs VNet peering
 
 * A VPN gateway is a specific type of VNet gateway that is used to send traffic between an Azure virtual network and an on-premises location over the public internet. You can also use a VPN gateway to send traffic between VNets. Each VNet can have only one VPN gateway.
