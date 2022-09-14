@@ -891,3 +891,11 @@ Recovery Services vaults store backup data for various Azure services such as Ia
 4. Configure the backup. Use the agent to create a backup policy including when to backup, what to backup, how long to retain items, and settings like network throttling.
     
 </details>
+
+# Azure Monitoring options. Azure Monitoring Agents & Extensions
+
+![image](https://docs.microsoft.com/en-us/training/modules/monitor-performance-using-azure-monitor-for-vms/media/2-azure-monitor-overview.png)
+    
+### Extensions and Agents
+    
+![image](https://user-images.githubusercontent.com/4239376/190249214-47815085-91ec-4713-8db6-cf3b229e6ac0.png)
