@@ -380,6 +380,32 @@ In the above example, if there was incoming traffic on port 80, you would need t
 <details>
 <summary>VNet Virtual network peering. Global Peering. Vnet Peering. Connect on-premise and Azure resources not exposing the traffic to the internet. VPN Gateway vs Vnet peernig</summary>
 
+
+**Create network:**    
+    
+> az network vnet create \
+    --resource-group <YOUR_RESOURCE_GROUP> \
+    --name SalesVNet \
+    --address-prefixes 10.1.0.0/16 \
+    --subnet-name <SUBNET_NAME> \
+    --subnet-prefixes 10.1.1.0/24 \
+    --location northeurope
+    
+**Create peering connection:**
+> az network vnet peering create \
+    --name <FROM_SUBNET_TO_SUBNET_NAME>
+    --remote-vnet <FIRST_SUBNET_NAME> \
+    --resource-group <RESOURCE_GROUP_OF_DESTINATION_SUBNET> \
+    --vnet-name <SECOND_SUBNET_NAME> \
+    --allow-vnet-access  
+    
+**Show list of established connections:**
+> az network vnet peering list \
+    --resource-group <RESOURCE_GROUP_ID> \
+    --vnet-name <YOUR_NETWORK> \
+    --query "[].{Name:name, Resource:resourceGroup, PeeringState:peeringState, AllowVnetAccess:allowVirtualNetworkAccess}"\
+    --output table
+    
 Several business units have identified services in these virtual networks that need to communicate with each other. You need to enable this connectivity, but you don't want to expose these services to the internet. You also want to keep the integration as simple as possible.
 
 ![image](https://user-images.githubusercontent.com/4239376/189206782-c6cef64a-ce76-4135-b5e2-945fa6bde316.png)
@@ -412,7 +438,6 @@ VNet Peering is nontransitive. When you establish VNet peering between VNet1 and
 * Overcome the limit on the number of VNet peerings per virtual network.
   
 ![image](https://user-images.githubusercontent.com/4239376/189208010-a12b91d1-20f3-4d92-b663-c607e6e7e382.png)
-
 
 ## VNet Global Peering vs Virtual Network Peering
 
