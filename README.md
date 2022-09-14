@@ -830,6 +830,8 @@ An Azure backup job consists of two phases. First, a virtual machine snapshot is
 
 ## Azure Backup vs Azure Backup Server
 
+**AZURE BACKUP AGENT - Also known as MARS. You may find it under "On-premises file and folder backups" section**
+    
 ![image](https://user-images.githubusercontent.com/4239376/189547139-ea301353-d323-43e8-b58f-f16e933a58f4.png)
 
 
