@@ -892,10 +892,21 @@ Recovery Services vaults store backup data for various Azure services such as Ia
     
 </details>
 
-# Azure Monitoring options. Azure Monitoring Agents & Extensions
+# Azure Monitoring options. Azure Monitoring Agents & Extensions. Log Analytics Workspace
 
 ![image](https://docs.microsoft.com/en-us/training/modules/monitor-performance-using-azure-monitor-for-vms/media/2-azure-monitor-overview.png)
+
+    
+<details>
+<summary>Azure Monitoring options. Azure Monitoring Agents & Extensions. Log Analytics Workspace</summary>
+    
+> Log Analytics workspaces are containers where Azure Monitor data is collected, aggregated, and analyzed. To better understand Log Analytics workspaces, the following diagram provides more insight into all the different types of logs that can be ingested.
+
+![image](https://user-images.githubusercontent.com/4239376/190251031-2d11a174-aee7-42ab-87e2-53bdea4175f2.png)
+
     
 ### Extensions and Agents
     
 ![image](https://user-images.githubusercontent.com/4239376/190249214-47815085-91ec-4713-8db6-cf3b229e6ac0.png)
+
+</details> 
