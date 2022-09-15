@@ -1,5 +1,9 @@
 # AZ-104 Microsoft Azure Administrator Exam. Materials, Tips, Hints.
 
+## ARM. Azure Resource Manager. Quick Start Templates
+
+* Quick start Templates could be found here: https://azure.microsoft.com/en-us/resources/templates/
+
 <details>
 <summary>Create Azure VM with auto-generated and stored SSH keys</summary>
 
