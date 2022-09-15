@@ -4,6 +4,8 @@
 
 * Quick start Templates could be found here: https://azure.microsoft.com/en-us/resources/templates/
 
+## Azure Virtual Machines
+
 <details>
 <summary>Create Azure VM with auto-generated and stored SSH keys</summary>
 
