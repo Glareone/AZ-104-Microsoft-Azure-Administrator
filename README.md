@@ -759,9 +759,14 @@ Azure uses system routes to direct network traffic between virtual machines, on-
 
 ![image](https://user-images.githubusercontent.com/4239376/189740739-f288ee2d-2941-469f-b6a1-51d488208095.png)
 
-
 </details>
 
+# Network Routing. Custom Routes
+    
+To control traffic flow within your virtual network, you must learn the purpose and benefits of custom routes.
+
+Learning: https://learn.microsoft.com/en-us/training/modules/control-network-traffic-flow-with-routes
+    
 # Load Balancing. Application Gateway. Load Balancer. Front Door. Traffic Manager
 
 <details>
