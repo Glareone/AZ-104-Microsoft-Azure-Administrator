@@ -762,7 +762,7 @@ Azure uses system routes to direct network traffic between virtual machines, on-
 
 </details>
 
-# Load Balancing. Application Gateway. Load Balancer. Front Door
+# Load Balancing. Application Gateway. Load Balancer. Front Door. Traffic Manager
 
 <details>
 <summary>Azure Application Gateway. Front Door</summary>
@@ -814,6 +814,19 @@ While both Front Door and Application Gateway are layer 7 (HTTP/HTTPS) load bala
     
 </details>
 
+<details>
+<summary>Traffic Manager. Azure Application Gateway vs Traffic Manager vs Front Door</summary>
+    
+* Traffic Manager provides DNS-based load balancing, while the Application Gateway gives you many of the same capabilities as Azure Front Door but at the regional level such as: Web Application Firewall (WAF) Transport Layer Security (TLS) termination. Path-based routing.
+    
+* Traffic manager provides automatic failover if there's a regional outage. It uses priority routing and regular health checks to determine where to route traffic.
+    
+* Traffic Manager will automatically fail over to the secondary region if the primary region fails. (active-active, active-passive)
+    
+![image](https://user-images.githubusercontent.com/4239376/190915124-ef0fca58-46c4-4b66-8c69-1a6446cea3bb.png)
+    
+</details>
+    
 # BACKUP Services: Site Recovery. Azure Backups. Managed Disks Snapshots
 
 ![image](https://user-images.githubusercontent.com/4239376/189547585-7bd8bb00-468d-4ae4-b3b8-1be016a58260.png)
