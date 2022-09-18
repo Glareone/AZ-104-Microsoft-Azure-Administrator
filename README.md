@@ -761,6 +761,18 @@ Azure uses system routes to direct network traffic between virtual machines, on-
 
 </details>
 
+<details>
+<summary>NVA. Network virtual appliance</summary>
+
+![image](https://user-images.githubusercontent.com/4239376/190916979-156c52be-9187-4fc5-bf60-d25f090745c4.png)
+    
+You can deploy NVAs chosen from providers in Azure Marketplace. Such providers include Cisco, Check Point, Barracuda, Sophos, WatchGuard, and SonicWall. You can use an NVA to filter traffic inbound to a virtual network, to block malicious requests, and to block requests made from unexpected resources.
+    
+![image](https://user-images.githubusercontent.com/4239376/190916919-62600287-8f3f-4b2a-a438-fe881b9cfa40.png)
+
+    
+</details>
+    
 # Network Routing. Custom Routes
     
 To control traffic flow within your virtual network, you must learn the purpose and benefits of custom routes.
