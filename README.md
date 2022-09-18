@@ -767,6 +767,14 @@ Azure uses system routes to direct network traffic between virtual machines, on-
 <details>
 <summary>Azure Application Gateway. Front Door</summary>
 
+# Application Gateway. Intro
+    
+Application Gateway (AGW) is a web traffic manager for your web applications (one or multiple).
+
+With AGW, on top of load balancing your workloads, you can make routing decisions based on URI path or host headers. For example, you can route traffic based on the incoming URL.
+    
+![image](https://miro.medium.com/max/1225/0*Sq2al0DFIWTPi7eE.png)
+    
 # Application Gateway. Features
     
 ![image](https://user-images.githubusercontent.com/4239376/189547356-3fc92ea8-6f3d-41b8-8ce1-b9e9a6241bff.png)
