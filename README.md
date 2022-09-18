@@ -920,7 +920,7 @@ Recovery Services vaults store backup data for various Azure services such as Ia
 # Azure DNS 
 
 <details>
-<summary>Azure DNS. A, AAAA, CNAME, DNS Private Zone</summary>
+<summary>Azure DNS. A, AAAA, CNAME, DNS Private Zone. Alias Records, Apex Domain.</summary>
 
 
 Learning Path, Register name in DNS, resolve Name Service (NS Record): https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns
@@ -941,6 +941,14 @@ Name server is the server to which your Domain Name Registar delegates resolving
 The apex domain is the highest level of your domain. In our case, that's wideworldimports.com. The apex domain is also sometimes referred to as the zone apex or root apex. It's often represented by the @ symbol in your DNS zone records.
     
 ![image](https://user-images.githubusercontent.com/4239376/190914315-53d04304-48fd-424a-bd76-456948776fd9.png)
+
+### Alias Record
+    
+![image](https://user-images.githubusercontent.com/4239376/190914440-51d2f516-da61-478f-ace8-a75e79a3ce25.png)
+
+You may use it to automatically update DNS records due to dynamic Ip-addresses or in case when you resource went down
+    
+![image](https://user-images.githubusercontent.com/4239376/190914497-55b357d5-dc38-4917-8c3d-e60d1126409a.png)
 
 
 ### Private DNS Zone
