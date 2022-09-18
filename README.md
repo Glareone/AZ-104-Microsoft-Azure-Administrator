@@ -825,6 +825,11 @@ While both Front Door and Application Gateway are layer 7 (HTTP/HTTPS) load bala
     
 ![image](https://user-images.githubusercontent.com/4239376/190915124-ef0fca58-46c4-4b66-8c69-1a6446cea3bb.png)
     
+## Another comparison
+    
+![image](https://user-images.githubusercontent.com/4239376/190915191-3863022e-5b86-4d26-b2e2-10b05ced53a6.png)
+
+    
 </details>
     
 # BACKUP Services: Site Recovery. Azure Backups. Managed Disks Snapshots
