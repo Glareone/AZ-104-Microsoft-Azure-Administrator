@@ -922,7 +922,6 @@ Recovery Services vaults store backup data for various Azure services such as Ia
 <details>
 <summary>Azure DNS. A, AAAA, CNAME, DNS Private Zone. Alias Records, Apex Domain.</summary>
 
-
 Learning Path, Register name in DNS, resolve Name Service (NS Record): https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns
 
 ### Record types
@@ -957,4 +956,10 @@ To provide name resolution for virtual machines (VMs) within a virtual network a
 
 </details>
 
+<details>
+<summary>Azure DNS with Load Balancer (Traffic Manager)</summary>
+
+Using Alias records you may conenct several web services to serve one DNS name. You may direct your traffic to Load balancer instead of VM.
+    
+</details>
 
