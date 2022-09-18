@@ -929,6 +929,19 @@ Learning Path, Register name in DNS, resolve Name Service (NS Record): https://l
 
 ![image](https://user-images.githubusercontent.com/4239376/190914050-a7f3f51f-6f76-4370-9524-e60ea0bfc51e.png)
 
+### Name Server (NS Record)
+    
+Name server is the server to which your Domain Name Registar delegates resolving. (in our case - Key-value storage on Azure side)
+    
+![image](https://user-images.githubusercontent.com/4239376/190914367-7254c195-770a-4a01-a337-348d1b9691da.png)
+
+    
+### Apex Domain, Root Domain
+    
+The apex domain is the highest level of your domain. In our case, that's wideworldimports.com. The apex domain is also sometimes referred to as the zone apex or root apex. It's often represented by the @ symbol in your DNS zone records.
+    
+![image](https://user-images.githubusercontent.com/4239376/190914315-53d04304-48fd-424a-bd76-456948776fd9.png)
+
 
 ### Private DNS Zone
 
