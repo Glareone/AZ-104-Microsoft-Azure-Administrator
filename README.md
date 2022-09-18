@@ -916,3 +916,25 @@ Recovery Services vaults store backup data for various Azure services such as Ia
 ![image](https://user-images.githubusercontent.com/4239376/190249214-47815085-91ec-4713-8db6-cf3b229e6ac0.png)
 
 </details> 
+
+# Azure DNS 
+
+<details>
+<summary>Azure DNS. A, AAAA, CNAME, DNS Private Zone</summary>
+
+
+Learning Path, Register name in DNS, resolve Name Service (NS Record): https://learn.microsoft.com/en-us/training/modules/host-domain-azure-dns
+
+### Record types
+
+* A - address.com to IP-address.
+* AAAA - address.com to IP-addresses (IP collection, several servers)
+* CNAME - canonical  name, adress1.com -> adress2.com
+
+### Private DNS Zone
+
+To provide name resolution for virtual machines (VMs) within a virtual network and between virtual networks, create a private DNS zone.
+
+</details>
+
+
