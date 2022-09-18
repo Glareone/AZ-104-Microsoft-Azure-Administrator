@@ -927,9 +927,8 @@ Learning Path, Register name in DNS, resolve Name Service (NS Record): https://l
 
 ### Record types
 
-* A - address.com to IP-address.
-* AAAA - address.com to IP-addresses (IP collection, several servers)
-* CNAME - canonical  name, adress1.com -> adress2.com
+![image](https://user-images.githubusercontent.com/4239376/190914050-a7f3f51f-6f76-4370-9524-e60ea0bfc51e.png)
+
 
 ### Private DNS Zone
 
