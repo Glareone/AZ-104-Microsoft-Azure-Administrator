@@ -814,7 +814,6 @@ Can work together with WAF
 ![image](https://user-images.githubusercontent.com/4239376/189547556-eccd0a5e-56b1-4a30-a69b-16602303b48e.png)
 
 ![image](https://user-images.githubusercontent.com/4239376/189547561-2967a0ed-37a5-47e0-92af-694ed1f264f5.png)
-
     
 ## Application Gateway Routing. Multiple Site routing. Path-based routing
  
@@ -853,7 +852,47 @@ While both Front Door and Application Gateway are layer 7 (HTTP/HTTPS) load bala
 ## Another comparison
     
 ![image](https://user-images.githubusercontent.com/4239376/190915191-3863022e-5b86-4d26-b2e2-10b05ced53a6.png)
+  
+</details>
+    
+<details>
+<summary>Private Load Balancer</summary>
 
+![image](https://user-images.githubusercontent.com/4239376/190918442-6abcf173-4b89-4f27-bbda-01ea6df1d4a4.png)
+
+    
+You can configure an internal load balancer in almost the same way as an external load balancer, but with these differences:
+
+* When you create the load balancer, select Internal for the Type value. When you select this setting, the front-end IP address of the load balancer isn't exposed to the internet.
+* Assign a private IP address instead of a public IP address for the front end of the load balancer.
+* Place the load balancer in the protected virtual network that contains the virtual machines you want to handle the requests.
+    
+</details>
+    
+# Load Balancer Q&A. Five-tuple vs Three-tuple. Session Persistence. Load Balancer questions
+
+<details>
+<summary>Interesting Questions. Load Balancer. Distribute traffic. Five-tuple hash vs Three-tuple hash (Source IP)</summary>
+   
+# Load Balancer
+![image](https://user-images.githubusercontent.com/4239376/190918284-b1db0f42-d7d7-48e5-b07f-da202be14f86.png)
+
+![image](https://user-images.githubusercontent.com/4239376/190918349-6259eb8f-af6f-4367-b897-87a124ff5ff7.png)
+    
+# Five-tuple vs Tree-tuple
+    
+* Five-tuple hash. The default distribution mode for Load Balancer is a five-tuple hash. The tuple is composed of source IP, source port, destination IP, destination port, and protocol type. Because the source port is included in the hash and the source port changes for each session, clients might be directed to a different virtual machine for each session.
+    
+![image](https://user-images.githubusercontent.com/4239376/190918543-ab0f9430-02ee-4939-86ff-1ff1daa138c3.png)
+
+    
+* Source IP affinity. This distribution mode is also known as session affinity or client IP affinity. To map traffic to the available servers, the source IP affinity mode uses a two-tuple hash (from the source IP address and destination IP address) or a three-tuple hash (from the source IP address, destination IP address, and protocol type). The hash ensures that requests from a specific client are always sent to the same virtual machine behind the load balancer.
+    
+![image](https://user-images.githubusercontent.com/4239376/190918547-99bedc7c-0277-4378-a844-c0e0df5fc188.png)
+
+# Choose Distribution mode. Session Persistence in load-balancing
+    
+![image](https://user-images.githubusercontent.com/4239376/190918585-dd07b9ae-2b88-42f5-afd4-ab0ff0aa8269.png)
     
 </details>
     
