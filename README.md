@@ -781,6 +781,9 @@ Learning: https://learn.microsoft.com/en-us/training/modules/control-network-tra
     
 # Load Balancing. Application Gateway. Load Balancer. Front Door. Traffic Manager
 
+![image](https://user-images.githubusercontent.com/4239376/192162592-0043f6b8-25a8-440e-b9f4-337c26197fed.png)
+
+
 <details>
 <summary>Azure Application Gateway. Front Door</summary>
 
