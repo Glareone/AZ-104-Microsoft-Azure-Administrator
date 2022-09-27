@@ -11,6 +11,9 @@ https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machi
 ### Desired State Configuration (DSC). Infrastracture State for VMs. 
 https://learn.microsoft.com/en-us/powershell/dsc/overview?view=dsc-2.0
 
+### Redundancy options for managed disks
+https://learn.microsoft.com/en-us/azure/virtual-machines/disks-redundancy
+
 <details>
 <summary>Create Azure VM with auto-generated and stored SSH keys</summary>
 
