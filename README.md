@@ -5,6 +5,11 @@
 * Quick start Templates could be found here: https://azure.microsoft.com/en-us/resources/templates/
 
 ## Azure Virtual Machines
+### Placement groups for VMs
+https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups
+
+### Desired State Configuration (DSC). Infrastracture State for VMs. 
+https://learn.microsoft.com/en-us/powershell/dsc/overview?view=dsc-2.0
 
 <details>
 <summary>Create Azure VM with auto-generated and stored SSH keys</summary>
@@ -1055,3 +1060,5 @@ Using Alias records you may conenct several web services to serve one DNS name. 
     
 </details>
 
+
+    
