@@ -299,7 +299,10 @@ That's correct. ClusterIP creates an internal IP address for use within the AKS 
 **NodePort**
 That's incorrect. NodePort creates a port mapping on the underlying node that allows the application to be accessed directly with the node IP address and port.
 
-# Network. Private Links. ExpressRoute. Firewall. Other network-related topics (ASG, NSG, DNS, VNet, VPN Gateway)
+# Network. Private Links. ExpressRoute. Firewall. Other network-related topics (ASG, NSG, DNS, VNet, VPN Gateway). Public IP Addresses as resource.
+
+Public IP Address. SKU: https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses  
+Basic Public IP Address vs Standard Public IP Address: https://serverfault.com/questions/1090042/what-is-the-difference-between-basic-and-standard-public-ips-in-azure#:~:text=Basic%20SKU%3A%20If%20you%20are,a%20load%20balancer%20front%20end  
 
 <details>
 <summary>Networks. Private links. ExpressRoute. Firewall (NAT, Application Rules, Network rules)</summary>
