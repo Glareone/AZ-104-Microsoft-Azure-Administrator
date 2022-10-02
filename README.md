@@ -305,6 +305,13 @@ Public IP Address. SKU: https://learn.microsoft.com/en-us/azure/virtual-network/
 Basic Public IP Address vs Standard Public IP Address: https://serverfault.com/questions/1090042/what-is-the-difference-between-basic-and-standard-public-ips-in-azure#:~:text=Basic%20SKU%3A%20If%20you%20are,a%20load%20balancer%20front%20end  
 
 <details>
+<summary>ExpressRoute Premium. Geopolitical access</summary>
+ Let you organize geopolitical access to all resources in all regions.  
+ Link: https://learn.microsoft.com/en-us/azure/expressroute/expressroute-faqs#expressroute-premium
+
+</details>
+
+<details>
 <summary>Networks. Private links. ExpressRoute. Firewall (NAT, Application Rules, Network rules)</summary>
   Private links - could organize access between your private network and Azure resource.  Could be created once network created.  
   ExpressRoute - Azure - on-premise connection. 
