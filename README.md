@@ -943,7 +943,15 @@ You can configure an internal load balancer in almost the same way as an externa
 ![image](https://user-images.githubusercontent.com/4239376/189547008-eb8088ed-71db-47fc-9d0b-73a48a60072b.png)
 
 </details>
+    
+<details>
+<summary>Instant Restore - Restore Files and Folders from VM (Azure Backup Instant Restore)</summary>
 
+Link: https://azure.microsoft.com/en-us/blog/instantly-restore-your-azure-virtual-machines-using-azure-backup/  
+Step by step guide: https://learn.microsoft.com/en-us/azure/backup/backup-azure-restore-files-from-vm  
+    
+</details>
+    
 <details>
 <summary>Azure Backup. Azure Backup Server</summary>
 
