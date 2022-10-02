@@ -319,6 +319,9 @@ Basic Public IP Address vs Standard Public IP Address: https://serverfault.com/q
 ## Firewall
     
 ![image](https://user-images.githubusercontent.com/4239376/188989290-6bde02fd-2cb8-47e3-91db-11670291e7f3.png)
+
+## Firewall deployment prerequisites
+It should be deployed in one resource group with Public IP Address and Virtual Network
     
 ### Topology
   It's recommended to use a hub-spoke network topology when deploying a firewall.
@@ -810,7 +813,7 @@ Learning: https://learn.microsoft.com/en-us/training/modules/control-network-tra
 
 
 <details>
-<summary>Azure Application Gateway. Front Door</summary>
+<summary>Azure Application Gateway. Application Gateway Listeners. Front Door</summary>
 
 # Application Gateway. Intro
     
@@ -835,7 +838,11 @@ Can work together with WAF
     
 ![image](https://user-images.githubusercontent.com/4239376/189547415-429e43d0-9c2d-4a51-8185-aabc75bae9f3.png)
 
-# Applicateion Gateway Inside
+# Application gateway listeners
+
+https://learn.microsoft.com/en-us/azure/application-gateway/configuration-listeners
+    
+# Application Gateway Inside
     
 ![image](https://user-images.githubusercontent.com/4239376/189547549-0307f644-1a95-4116-be5b-64122e18536f.png)
 
